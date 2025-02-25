@@ -16,26 +16,31 @@ public interface AppointmentMapper {
     boolean write( AppointmentDto appointmentDto );
 
     // 2. 전체 진료 조회
-    @Select( "SELECT p.name, d.name, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
-            "INNER JOIN doctor d ON d.doctorid = a.doctorid ORDER BY a.appointmentdate DESC" )
+    @Select( "SELECT p.name pname, d.name dname, d.specialty, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
+            "INNER JOIN doctor d ON d.doctorid = a.doctorid ORDER BY a.appointmentid DESC" )
     List<AppointmentDto> findAll();
 
+    // 2-1. 진료 상세 조회
+    @Select( "SELECT p.name pname, d.name dname, d.specialty, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
+            "INNER JOIN doctor d ON d.doctorid = a.doctorid WHERE a.appointmentid = #{appointmentid} ORDER BY a.appointmentid DESC" )
+    AppointmentDto find( int appointmentid );
+
     // 3. 날짜별 예약 조회
-    @Select( "SELECT p.name, d.name, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
+    @Select( "SELECT p.name pname, d.name dname, d.specialty, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
             "INNER JOIN doctor d ON d.doctorid = a.doctorid WHERE a.appointmentdate = #{appointmentdate} " +
-            "ORDER BY a.appointmentdate DESC" )
+            "ORDER BY a.appointmentid DESC" )
     List<AppointmentDto> findByDate( String appointmentdate );
 
     // 4. 환자별 예약 조회
-    @Select( "SELECT p.name, d.name, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
+    @Select( "SELECT p.name pname, d.name dname, d.specialty, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
             "INNER JOIN doctor d ON d.doctorid = a.doctorid WHERE a.patientid = #{patientid} " +
-            "ORDER BY a.appointmentdate DESC" )
+            "ORDER BY a.appointmentid DESC" )
     List<AppointmentDto> findByPatient( int patientid );
 
     // 5. 의사별 예약 조회
-    @Select( "SELECT p.name, d.name, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
+    @Select( "SELECT p.name pname, d.name dname, d.specialty, a.* FROM appointment a INNER JOIN patient p ON p.patientid = a.patientid " +
             "INNER JOIN doctor d ON d.doctorid = a.doctorid WHERE a.doctorid = #{doctorid} " +
-            "ORDER BY a.appointmentdate DESC" )
+            "ORDER BY a.appointmentid DESC" )
     List<AppointmentDto> findByDoctor( int doctorid );
 
     // 6. 진료 변경

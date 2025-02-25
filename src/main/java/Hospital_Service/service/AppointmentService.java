@@ -26,6 +26,13 @@ public class AppointmentService {
         return appointmentMapper.findAll();
     } // f end
 
+    // 2-1. 진료 상세 조회
+    public AppointmentDto find( int appointmentid ){
+        System.out.println("AppointmentController.findById");
+        System.out.println("appointmentid = " + appointmentid);
+        return appointmentMapper.find( appointmentid );
+    } // f end
+
     // 3. 날짜별 예약 조회
     public List<AppointmentDto> findByDate( String appointmentdate ){
         System.out.println("AppointmentController.findDate");

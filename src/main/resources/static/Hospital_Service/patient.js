@@ -14,7 +14,7 @@ const onWrite = async () => {
         const phone = phoneInput.value;
         const address = addressInput.value;
 
-        obj = { name, birthdate, phone, address };
+        const obj = { name, birthdate, phone, address };
         const response = await axios.post( '/patient' , obj )
         if( response.data ) { alert('환자 등록 성공'); findAll(); }
         else{ alert('환자 등록 실패'); }

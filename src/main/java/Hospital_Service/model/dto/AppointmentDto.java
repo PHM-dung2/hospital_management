@@ -12,4 +12,7 @@ public class AppointmentDto {
     private String appointmenttime;
     private int status;
     private String createdat;
+    private String pname;
+    private String dname;
+    private String specialty;
 }

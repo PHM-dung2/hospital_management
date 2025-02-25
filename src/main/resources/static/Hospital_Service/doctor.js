@@ -12,7 +12,7 @@ const onWrite = async () => {
         const specialty = specialtyInput.value;
         const phone = phoneInput.value;
 
-        obj = { name, specialty, phone };
+        const obj = { name, specialty, phone };
         const response = await axios.post( '/doctor' , obj )
         if( response.data ) { alert('의사 등록 성공'); findAll(); }
         else{ alert('의사 등록 실패'); }

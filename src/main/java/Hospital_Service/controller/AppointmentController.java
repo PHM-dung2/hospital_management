@@ -28,6 +28,14 @@ public class AppointmentController {
         return appointmentService.findAll();
     } // f end
 
+    // 2-1. 진료 상세 조회
+    @GetMapping("/view")
+    public AppointmentDto find( @RequestParam( "appointmentid" ) int appointmentid ){
+        System.out.println("AppointmentController.findById");
+        System.out.println("appointmentid = " + appointmentid);
+        return appointmentService.find( appointmentid );
+    } // f end
+
     @GetMapping( "/date" )
     // 3. 날짜별 예약 조회
     public List<AppointmentDto> findByDate( @RequestParam( "appointmentdate" ) String appointmentdate ){
