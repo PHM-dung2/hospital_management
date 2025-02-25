@@ -14,12 +14,12 @@ public interface PatientMapper {
     @Select( "SELECT * FROM patient" )
     List<PatientDto> findAll();
     // 3. 환자 상세 조회
-    @Select( "SELECT * FROM patient WHERE patientid = #{patientid}" )
+    @Select( "SELECT * FROM patient WHERE patientid=#{patientid}" )
     PatientDto find( int patiendid );
     // 4. 환자 수정
-    @Update( "UPDATE patient SET birthdate = #{birthdate}, phone = #{phone}, address = #{address} WHERE patientid = #{patientid}")
+    @Update( "UPDATE patient SET birthdate = #{birthdate}, phone = #{phone}, address = #{address} WHERE patientid=#{patientid}")
     boolean update( PatientDto patientDto );
-    @Delete( "DELETE FROM patient WHERE patientid = #{patientid}" )
+    @Delete( "DELETE FROM patient WHERE patientid=#{patientid}" )
     // 5. 환자 삭제
     boolean delete( int patiendid );
 }

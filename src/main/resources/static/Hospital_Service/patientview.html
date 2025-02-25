@@ -50,50 +50,35 @@
     <div class="col-md-10 mx-auto col-lg-5">
       <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="nameInput" placeholder="환자명">
-          <label for="nameInput">의사명</label>
+          <input type="text" class="form-control" id="nameInput" placeholder="환자명" disabled>
+          <label for="nameInput">환자명</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="date" class="form-control" id="birthdateInput" placeholder="생년월일">
-          <label for="birthdateInput">진료과</label>
+          <input type="date" class="form-control" id="birthdateInput" placeholder="생년월일" disabled>
+          <label for="birthdateInput">생년월일</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="phoneInput" placeholder="전화번호">
+          <input type="text" class="form-control" id="phoneInput" placeholder="전화번호" disabled>
           <label for="phoneInput">전화번호</label>
         </div>
 
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="addressInput" placeholder="주소">
+          <input type="text" class="form-control" id="addressInput" placeholder="주소" disabled>
           <label for="addressInput">주소</label>
         </div>
 
-        <button class="w-100 btn btn-lg btn-success" type="button" onclick="onWrite()">진료 예약 등록</button>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="createdatInput" placeholder="등록날짜" disabled>
+          <label for="createdatInput">등록날짜</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-success" type="button" onclick="onUpdateLink()">환자 수정</button>
         <hr class="my-4">
+        <button class="w-100 btn btn-lg btn-success" type="button" onclick="onDelete()">환자 삭제</button>
         <small class="text-body-secondary"></small>
       </form>
-    </div>
-
-    <div class="col-lg-7 text-center text-lg-start">
-      <h3> 진료 목록 </h3>
-      <table class="table table-hover table-success">
-        <thead>
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">성함</th>
-          <th scope="col">주소</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-        </tr>
-        </tbody>
-      </table>
-
     </div>
 
   </div>
@@ -106,7 +91,7 @@
 <!-- 부트스트랩 js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <!-- js -->
-<script src="index.js" ></script>
+<script src="patientview.js" ></script>
 
 </body>
 </html>
